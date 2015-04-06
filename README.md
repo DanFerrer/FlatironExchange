@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a short description of your app.
+Add a short description of your app......
 
 ## Screenshots
 
@@ -37,6 +37,5 @@ Link to your blog, twitter, etc!
 
 ## License
 
-#HELLO GUYS, IT'S TIFFANY!
-
+Flatironexchange is MIT Licensed. See LICENSE for details.
 Flatironexchange is MIT Licensed. See LICENSE for details.
