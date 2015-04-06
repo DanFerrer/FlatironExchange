@@ -28,6 +28,8 @@ Any things in particular you'd like to see in pull requests?
 
 ## Future
 
+#Making sure everything works!
+
 What features are you currently working on? Only mention things that you
 actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
 
