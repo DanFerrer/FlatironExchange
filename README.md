@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a short description of your app.
+Add a short description of your app......
 
 ## Screenshots
 
