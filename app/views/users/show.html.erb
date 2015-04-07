@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @user.image_url %>
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -8,9 +9,8 @@
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
-</p>
+</p><br>
 
-<%= image_tag @user.image_url %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

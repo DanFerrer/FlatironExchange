@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-left">
       <% if current_user %>
-         <li> Hello <%= current_user.name %></li>
+         <li><%= link_to "Hello, #{current_user.name}", user_path %></li>
          <li><%= link_to "Log Out", "/logout" %></li>
       <% else %>
         <li><%= link_to "Log In with Github", "/auth/github" %></li>
