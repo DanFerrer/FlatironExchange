@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
+  get 'welcome/welcome'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'welcome#index'
 
   resources :questions
   resources :users
   resources :sesssions
-  root "users#new"
   get "/auth/github/callback", to: "sessions#create", as: :login
   get "/logout" => "sessions#destroy", :as => :logout
 
