@@ -24,6 +24,7 @@
   <% end %>
 
   <div class="field">
+  	<%= f.hidden_field :question_id, value: @question.id%>
     <%= f.label :content, "Answer the question" %><br>
     <%= f.text_area :content %>
   </div>
