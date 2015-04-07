@@ -2,7 +2,7 @@
 
 ## Description
 
-Add a short description of your app.
+Add a short description of your app......
 
 ## Screenshots
 
@@ -27,6 +27,9 @@ Explain how people can contribute to your app. How should they write tests?
 Any things in particular you'd like to see in pull requests?
 
 ## Future
+#this is the last bloody time
+
+#Making sure everything works!
 
 What features are you currently working on? Only mention things that you
 actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
@@ -38,3 +41,5 @@ Link to your blog, twitter, etc!
 ## License
 
 Flatironexchange is MIT Licensed. See LICENSE for details.
+
+##TESTING AGAIN

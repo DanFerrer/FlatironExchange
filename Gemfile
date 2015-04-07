@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-github'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,7 +53,8 @@ group :test, :development do
   gem 'simplecov'
   gem 'database_cleaner'
   gem 'sqlite3'
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
   gem 'guard-rspec', require: false
   gem 'thin'
 end
