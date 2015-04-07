@@ -10,7 +10,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 20150407151815) do
+
+ActiveRecord::Schema.define(version: 20150407153302) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
