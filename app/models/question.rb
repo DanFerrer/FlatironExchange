@@ -3,4 +3,12 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   validates_presence_of :content
+
+  def self.search(search)
+    # if search
+    where('content LIKE ?', "%#{search}%")
+    # else
+    #   where(:all)
+    # end
+  end
 end
