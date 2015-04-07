@@ -5,6 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  resources :users
+  resources :sesssions
+  root "users#new"
+  get "/auth/github/callback", to: "sessions#create", as: :login
+  get "/logout" => "sessions#destroy", :as => :logout
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
