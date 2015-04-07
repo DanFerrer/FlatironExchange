@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_filter :authorize, only: [:index, :show, :edit, :update, :create, :destroy]
 
   # GET /questions
   # GET /questions.json
