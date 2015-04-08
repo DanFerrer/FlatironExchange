@@ -31,6 +31,7 @@ class QuestionsController < ApplicationController
     #  tags <<Tag.find_or_create_by(:name => tag)
     # end
     # @question.tags << tags
+    # binding.pry
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
