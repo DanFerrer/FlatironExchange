@@ -11,14 +11,15 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @answer = @question.answers.build
+    # @answer = @question.answers.build
   end
 
   # GET /questions/new
   def new
     @question = Question.new
+    @question.answers.build
   end
-
+  
   # GET /questions/1/edit
   def edit
   end
@@ -71,6 +72,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content, :answer)
+      params.require(:question).permit(:title, :content, :answer, answer_attributes: [:content])
     end
 end

@@ -9,29 +9,15 @@
 </p>
 
 <!-- Begin Answer Field -->
-
-<%= form_for(@answer) do |f| %>
-	<% if @answer.errors.any? %>
-	  <div id="error_explanation">
-	    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this question from being saved:</h2>
-	    <ul>
-	    <% @answer.errors.full_messages.each do |message| %>
-	      <li><%= message %></li>
-	    <% end %>
-	    </ul>
-	  </div>
-	<% end %>
-
-	
-  <div class="field">
-  	<%= f.hidden_field :question_id, value: @question.id%>
-    <%= f.label :content, "Answer question below :" %><br>
-    <%= f.text_area :content %>
-  </div>
+<%= form_for([@question, Answer.new]) do |f| %>
+  <%= f.label :content, "Answer the question" %>
+  <%= f.text_field :content  %>
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
 <% end %>
+
+
 <h4>Answers<h4>
 	<% if !@question.answers.empty? %>
 		<% @question.answers.each do |answer| %>
