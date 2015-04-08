@@ -44,15 +44,6 @@ ActiveRecord::Schema.define(version: 20150408145855) do
 
   add_index "questions", ["asker_id"], name: "index_questions_on_asker_id"
 
-  create_table "replies", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "answer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "replies", ["answer_id"], name: "index_replies_on_answer_id"
-
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

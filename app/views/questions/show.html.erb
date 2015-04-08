@@ -33,35 +33,11 @@
 	<% if !@question.answers.empty? %>
 		<% @question.answers.each do |answer| %>
 		<p><%= answer.content %></p>
-		<% answer.replies.each do |reply| %>
-			<p><%= reply.content %></p>
-		<%end%> 
-		<!-- End Answer Field -->
-		<!-- Begin Reply Field -->
-		<%= form_for(@reply) do |f| %>
-  		<% if @reply.errors.any? %>
-    		<div id="error_explanation">
-      		<h2><%= pluralize(@reply.errors.count, "error") %> prohibited this question from being saved:</h2>
-      		<ul>
-      			<% @reply.errors.full_messages.each do |message| %>
-        			<li><%= message %></li>
-      			<% end %>
-      		</ul>
-    		</div>
-  		<% end %>
-	  	<div class="field">
-		  	<%= f.hidden_field :answer_id, value: answer.id%>
-		    <%= f.label :content, "Reply to the Answer" %><br>
-		    <%= f.text_area :content %>
-	  	</div>
-	  	<div class="actions">
-	    	<%= f.submit "Submit" %>
-	  	</div>
-		<% end %>
-	<% end %>
-<%end%> 
+	<%end%>
+<%end%>
 
-<!-- End Reply Field -->
+		<!-- End Answer Field -->
+		
 
 
 
