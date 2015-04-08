@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<%= image_tag @user.image_url %>
-<p><br>
-  <strong>Name:</strong>
+<%= image_tag @user.image_url, class: "img-circle", width: "200", height: "200" %><br>
+<br><p>
+<strong>Name:</strong>
   <%= @user.name %>
 </p>
 
@@ -10,7 +9,6 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p><br>
-
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', root_path %> <br>
