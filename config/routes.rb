@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :users
   resources :sesssions
   resources :answers
-  resources :replies 
   get "/auth/github/callback", to: "sessions#create", as: :login
   get "/logout" => "sessions#destroy", as: :logout
 

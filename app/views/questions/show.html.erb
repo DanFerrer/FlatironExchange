@@ -7,6 +7,7 @@
   <strong>Content:</strong>
   <%= @question.content %>
 </p>
+
 <!-- Begin Answer Field -->
 
 <%= form_for(@answer) do |f| %>
@@ -20,6 +21,8 @@
 	    </ul>
 	  </div>
 	<% end %>
+
+	
   <div class="field">
   	<%= f.hidden_field :question_id, value: @question.id%>
     <%= f.label :content, "Answer the question" %><br>
