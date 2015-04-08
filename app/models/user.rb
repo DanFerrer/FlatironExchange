@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :questions, foreign_key: "asker_id"
-  # has_many :answers, through: :questions, foreign_key: "responder_id"
+  has_many :answers, foreign_key: "responder_id"
 
   def self.create_with_omniauth(auth)
     # binding.pry
