@@ -1,29 +1,24 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Subject:</strong>
   <%= @question.title %>
 </p>
-
 <p>
   <strong>Content:</strong>
   <%= @question.content %>
 </p>
-
- <%= form_for(@answer) do |f| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this question from being saved:</h2>
-
-      <ul>
-      <% @answer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-
+<!-- Begin Answer Field -->
+<%= form_for(@answer) do |f| %>
+	<% if @answer.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this question from being saved:</h2>
+	    <ul>
+	    <% @answer.errors.full_messages.each do |message| %>
+	      <li><%= message %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
   <div class="field">
   	<%= f.hidden_field :question_id, value: @question.id%>
     <%= f.label :content, "Answer the question" %><br>
@@ -33,14 +28,41 @@
     <%= f.submit "Submit" %>
   </div>
 <% end %>
-
-
-<%if @question.answers.present? %>
-	<h4>Answers<h4>
+<h4>Answers<h4>
+	<% if !@question.answers.empty? %>
 		<% @question.answers.each do |answer| %>
-			<p><%= answer.content %></p>
+		<p><%= answer.content %></p>
+		<% answer.replies.each do |reply| %>
+			<p><%= reply.content %></p>
 		<%end%> 
-<%end%>
+		<!-- End Answer Field -->
+		<!-- Begin Reply Field -->
+		<%= form_for(@reply) do |f| %>
+  		<% if @reply.errors.any? %>
+    		<div id="error_explanation">
+      		<h2><%= pluralize(@reply.errors.count, "error") %> prohibited this question from being saved:</h2>
+      		<ul>
+      			<% @reply.errors.full_messages.each do |message| %>
+        			<li><%= message %></li>
+      			<% end %>
+      		</ul>
+    		</div>
+  		<% end %>
+	  	<div class="field">
+		  	<%= f.hidden_field :answer_id, value: answer.id%>
+		    <%= f.label :content, "Reply to the Answer" %><br>
+		    <%= f.text_area :content %>
+	  	</div>
+	  	<div class="actions">
+	    	<%= f.submit "Submit" %>
+	  	</div>
+		<% end %>
+	<% end %>
+<%end%> 
+
+<!-- End Reply Field -->
+
+
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
