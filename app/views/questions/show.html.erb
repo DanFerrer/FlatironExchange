@@ -8,6 +8,7 @@
   <%= @question.content %>
 </p>
 <!-- Begin Answer Field -->
+
 <%= form_for(@answer) do |f| %>
 	<% if @answer.errors.any? %>
 	  <div id="error_explanation">

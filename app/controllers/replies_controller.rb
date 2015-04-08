@@ -5,6 +5,7 @@ class RepliesController < ApplicationController
 		redirect_to question_path(@reply.question)
 	end
 
+	private
 	def reply_params
 		params.require(:reply).permit(:content, :answer_id)
 	end
