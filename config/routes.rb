@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get "/questions" => "questions#index", as: :questions
 
   resources :questions
   resources :users
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   resources :answers
   resources :replies 
   get "/auth/github/callback", to: "sessions#create", as: :login
-  get "/logout" => "sessions#destroy", :as => :logout
+  get "/logout" => "sessions#destroy", as: :logout
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -14,16 +14,21 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-left">
       <% if current_user %>
-         <li><%= link_to "Hello, #{current_user.name}", user_path(current_user.id) %></li>
-         <li><%= link_to "Log Out", "/logout" %></li>
+        <li><%= link_to "Hello, #{current_user.name}", user_path(current_user.id) %></li>
+        <li><%= link_to "New Question", new_question_path %></li>
+        <li><%= link_to "See My Questions", questions_path %></li>
+        <li><%= form_tag("/search", :method => :get, :class => "navbar-form navbar-left") do %>
+          <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search"%>
+          <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+        <% end %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Log Out", "/logout" %></li>
+      </ul>
       <% else %>
         <li><%= link_to "Log In with Github", "/auth/github" %></li>
       <% end %>
       </ul>
-      <%= form_tag("/search", :method => :get, :class => "navbar-form navbar-left") do %>
-        <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search"%>
-        <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
-      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
