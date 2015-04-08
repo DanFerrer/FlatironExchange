@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @answer = @question.answers.build
+    @reply = @answer.replies.build
   end
 
   # GET /questions/new
