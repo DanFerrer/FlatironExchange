@@ -33,9 +33,9 @@
 	<% if !@question.answers.empty? %>
 		<% @question.answers.each do |answer| %>
 		<p><%= answer.content %></p>
-		<% answer.replies.each do |reply| %>
-			<p><%= reply.content %></p>
-		<%end%> 
+	<%end%>
+<%end%>
+
 		<!-- End Answer Field -->
 		
 
