@@ -26,6 +26,12 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    # tags
+    # parmas[tags attributes].each do |tag|
+    #  tags <<Tag.find_or_create_by(:name => tag)
+    # end
+    # @question.tags << tags
+    # binding.pry
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -69,6 +75,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content).merge(asker_id: current_user.id)
+      params.require(:question).permit(:title, :content, :tag_ids => [], :tags_attributes => [:id, :name]).merge(asker_id: current_user.id)
     end
 end

@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # adding changes from masha
 #tags have a name
-# tags = ["Ruby", "JavaScript", "iOS", "HTML", "CSS", "Sass", "Rails", "Rake", "Git"]
-# tags.each {|tag| Tag.create(name: tag) }
+tags = ["Ruby", "JavaScript", "iOS", "HTML", "CSS", "Sass", "Rails", "Rake", "Git"]
+tags.each {|tag| Tag.create(name: tag) }
 
 blake = User.create(
   name: "Blake Johnson",
