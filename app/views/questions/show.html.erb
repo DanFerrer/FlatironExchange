@@ -9,24 +9,6 @@
 </p>
 <!-- Begin Answer Field -->
 
-
-<%= form_for @person do |f| %>
-  Addresses:
-  <ul>
-    <%= f.fields_for :addresses do |addresses_form| %>
-      <li>
-        <%= addresses_form.label :kind %>
-        <%= addresses_form.text_field :kind %>
- 
-        <%= addresses_form.label :street %>
-        <%= addresses_form.text_field :street %>
-        ...
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
-
 <%= form_for(@answer) do |f| %>
 	<% if @answer.errors.any? %>
 	  <div id="error_explanation">
@@ -55,31 +37,7 @@
 			<p><%= reply.content %></p>
 		<%end%> 
 		<!-- End Answer Field -->
-		<!-- Begin Reply Field -->
-		<%= form_for(@reply) do |f| %>
-  		<% if @reply.errors.any? %>
-    		<div id="error_explanation">
-      		<h2><%= pluralize(@reply.errors.count, "error") %> prohibited this question from being saved:</h2>
-      		<ul>
-      			<% @reply.errors.full_messages.each do |message| %>
-        			<li><%= message %></li>
-      			<% end %>
-      		</ul>
-    		</div>
-  		<% end %>
-	  	<div class="field">
-		  	<%= f.hidden_field :answer_id, value: answer.id%>
-		    <%= f.label :content, "Reply to the Answer" %><br>
-		    <%= f.text_area :content %>
-	  	</div>
-	  	<div class="actions">
-	    	<%= f.submit "Submit" %>
-	  	</div>
-		<% end %>
-	<% end %>
-<%end%> 
-
-<!-- End Reply Field -->
+		
 
 
 
