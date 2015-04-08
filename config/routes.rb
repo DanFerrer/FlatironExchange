@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  resources :users
+  resources :users 
   resources :sesssions
   resources :answers
   get "/auth/github/callback", to: "sessions#create", as: :login
