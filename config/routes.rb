@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get "/questions" => "questions#index", as: :questions
 
-  resources :questions
+  resources :questions do
+    resources :answers
+  end
   resources :users
   resources :sesssions
   resources :answers
