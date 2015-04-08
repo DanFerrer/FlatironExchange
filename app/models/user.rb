@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :questions, foreign_key: "asker_id"
   has_many :answers, foreign_key: "responder_id"
+  acts_as_voter
 
   def self.create_with_omniauth(auth)
     # binding.pry
