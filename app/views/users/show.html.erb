@@ -2,30 +2,22 @@
 <br><p>
   <%= @user.name %>
 </p>
-
 <p>
   <%= @user.email %>
+</p>
+<p>
+  <%= @user.title %>
 </p><br>
 
-<h4>My Tags:</h4>
-<div id="tag_cloud">
-  <% @questions.each do |q| %>
-    <% tag_cloud q.tag_counts, %w[s m l] do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-    <% end %>
-  <% end %>
-</div><br />
-
-<h4>Questions Asked:</h4>
+<h4>Questions asked:</h4>
 <% @questions.each do |question| %>
   <p><strong> <%= link_to question.title, question_path(question) %></strong>:
   <%= question.content %> </p>
 <% end %><br />
 
-<h4>Questions Answered:</h4>
+<h4>Questions answered:</h4>
 <% @answers.each do |answer| %>
-  <p><%= link_to answer.title, question_path(answer)%>
-  <%= answer.content %></p>
+  <p><%= answer.content %></p>
 <% end %>
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
