@@ -15,6 +15,7 @@
       <ul class="nav navbar-nav navbar-left">
       <% if current_user %>
         <li><%= link_to "Hello, #{current_user.name}", user_path(current_user.id) %></li>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "New Question", new_question_path %></li>
         <li><%= link_to "Browse Questions", questions_path %></li>
         <li><%= form_tag("/search", :method => :get, :class => "navbar-form navbar-left") do %>
