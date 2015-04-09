@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  resources :users 
+  resources :users
   resources :sesssions
   resources :answers do
     member do
@@ -23,11 +23,11 @@ Rails.application.routes.draw do
 
   get "/auth/github/callback", to: "sessions#create", as: :login
   get "/logout" => "sessions#destroy", as: :logouts
-  get "/ask" => "questions#create", as: :ask
   get "/members" => "users#index", as: :members
   get "/profile" => "users#show", as: :profile
   get "/results" => "search#index", as: :results
   # get "/tagged" => "tagged#index" as: :tagged
+  get "/home" => "home#index", as: :home
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
     # binding.pry
     Question.where('content LIKE ?', "%#{search}%")
   end
-  
+
   def tags_name
     Tag.find_or_create_by_name(:name)
   end
