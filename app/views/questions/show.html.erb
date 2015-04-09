@@ -1,9 +1,9 @@
 <p>
- <strong>Subject:</strong><br />
+ <strong>Question:</strong><br />
  <%= @question.title %>
 </p>
 <p>
- <strong>Question:</strong><br />
+ <strong>* * *</strong><br />
  <%= @question.content %>
 </p>
 <p>
@@ -20,7 +20,7 @@
   <%end%>
 </ul>
 <%= form_for([@question, Answer.new]) do |f| %>
- <%= f.label :content, "Answer the question" %>
+ <%= f.label :content, "Submit your answer" %>
  <%= f.text_field :content  %>
  <div class="actions">
    <br /><%= f.submit "Submit", class: "btn btn-primary" %>

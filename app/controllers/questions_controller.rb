@@ -68,7 +68,7 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_to do |format|
       flash[:success] = 'Question was successfully destroyed.'
-      format.html { redirect_to home_url }
+      format.html { redirect_to @question  }
       format.json { head :no_content }
     end
   end
