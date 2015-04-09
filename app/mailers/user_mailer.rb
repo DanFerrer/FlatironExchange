@@ -5,9 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.sign_up.subject
   #
-  def sign_up
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def sign_up(user)
+    @user = user
+    
+    mail to: @user.email, subject: "Welcome to Flatiron Exchange #{@user.name}!"
   end
 end

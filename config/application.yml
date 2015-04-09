@@ -11,3 +11,5 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 GITHUB_KEY: 69d8caa809cd5e68adaa
 GITHUB_SECRET: 33bd505b2aa286c3afeaeaa88018e6ed3d6b3f61
+gmail_username: flatironschoolexchange@gmail.com
+gmail_password: flatiron
