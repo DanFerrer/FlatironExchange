@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   get "/auth/github/callback", to: "sessions#create", as: :login
-  get "/logout" => "sessions#destroy", as: :logouts
+  get "/logout" => "sessions#destroy", as: :logout
   get "/members" => "users#index", as: :members
   get "/profile" => "users#show", as: :profile
   get "/results" => "search#index", as: :results

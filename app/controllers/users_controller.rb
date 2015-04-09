@@ -21,7 +21,12 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @title = ["Instructor", "Alum", "Student"]
+    # binding.pry
+    if @current_user.id.to_s == params[:id]
+    @user = @current_user
+    else
+      redirect_to home_url 
+    end
   end
 
   # POST /users
@@ -73,7 +78,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:id,:name, :email, :image_url)
-      params.require(:user).permit(:id, :name, :email, :title, :image_url, :profile, :ask)
+      params.require(:user).permit(:id, :image_url)
+      params.require(:user).permit(:id, :title, :image_url, :profile)
     end
 end
