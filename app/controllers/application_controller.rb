@@ -12,6 +12,4 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to root_url, notice: "Not authorized" if current_user.nil?
   end
-
-
 end

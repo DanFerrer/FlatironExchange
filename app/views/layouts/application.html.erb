@@ -11,6 +11,15 @@
 <%= render "layouts/header"  %>
 
 <div class="container">
+  <% flash.each do |name, msg| %>
+    <button class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <div class="alert alert-<%= name %> alert-dismissable">
+      <%= msg %>
+    </div>
+  <% end %>
+</div>
+
+<div class="container">
   <%= yield %>
 </div>
 
