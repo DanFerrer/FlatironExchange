@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   # GET /questions.json
-  private
+  
   def index
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
