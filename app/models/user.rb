@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
       user.image_url = auth["info"]["image"]
     end
   end
+
+  def self.titles
+    ["Instructor", "Alum", "Student"]
+  end
 end
