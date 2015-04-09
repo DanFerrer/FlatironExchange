@@ -16,7 +16,7 @@
       <% if current_user %>
         <li><%= link_to "Hello, #{current_user.name}", user_path(current_user.id) %></li>
         <li><%= link_to "New Question", new_question_path %></li>
-        <li><%= link_to "See My Questions", questions_path %></li>
+        <li><%= link_to "Browse Questions", questions_path %></li>
         <li><%= form_tag("/search", :method => :get, :class => "navbar-form navbar-left") do %>
           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search content"%>
           <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
