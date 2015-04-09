@@ -11,9 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    # @tags = @user.questions.first.tags
     @questions = @user.questions
-    @answers = @user.questions.joins(:answers)
+    @answers = @user.answers
   end
 
   # GET /users/new
@@ -22,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @title = ["Instructor", "Alum", "Student"]
   end
 
   # POST /users
@@ -44,6 +44,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      # binding.pry
       if @user.update(user_params)
         format.html { redirect_to @user, success: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
@@ -73,5 +74,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:id,:name, :email, :image_url)
+      params.require(:user).permit(:id, :name, :email, :title, :image_url, :profile, :ask)
     end
 end
