@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
 	def create
 		question = Question.find(params[:question_id])
     question.answers.create(answer_params)
-		flash[:success] = "Your answer has been created!"
+		flash[:success] = "Your answer has been submitted!"
 		redirect_to question_path(question)
 	end
 
