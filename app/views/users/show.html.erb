@@ -10,10 +10,7 @@
 </p><br>
 
 <h4>My tags:</h4>
-<% @questions.each do |question| %>
-  <p><strong> <%= link_to question.title, question_path(question) %></strong>:
-  <%= question.content %> </p>
-<% end %><br />
+
 
 <h4>Questions asked:</h4>
 <% @questions.each do |question| %>

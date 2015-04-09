@@ -13,8 +13,6 @@
       <!-- Create linkable profiles on names, names
       go below profile pictures -->
         <td><%= user.name %></td>
-        <!-- binding.pry -->
-        
         <td><%= link_to_image user.image_url, user_path(user.id), class: "img-circle img-responsive", width: "50", height: "50" %><br>
         </td>
       </tr>
@@ -23,5 +21,3 @@
 </table>
 
 <br>
-
-
