@@ -2,9 +2,11 @@
 <br><p>
   <%= @user.name %>
 </p>
-
 <p>
   <%= @user.email %>
+</p>
+<p>
+  <%= @user.title %>
 </p><br>
 
 <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |

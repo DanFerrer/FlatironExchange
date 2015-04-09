@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'welcome#index'
   # get "/archive" => "questions#index", as: :archive
   get "/tags/:tag" => "questions#index", as: :tag
 
@@ -23,11 +23,11 @@ Rails.application.routes.draw do
 
   get "/auth/github/callback", to: "sessions#create", as: :login
   get "/logout" => "sessions#destroy", as: :logouts
-  get "/ask" => "questions#create", as: :ask
   get "/members" => "users#index", as: :members
   get "/profile" => "users#show", as: :profile
   get "/results" => "search#index", as: :results
   # get "/tagged" => "tagged#index" as: :tagged
+  get "/home" => "home#index", as: :home
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

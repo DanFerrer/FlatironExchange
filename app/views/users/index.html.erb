@@ -13,7 +13,8 @@
       <!-- Create linkable profiles on names, names
       go below profile pictures -->
         <td><%= user.name %></td>
-        <td><%= image_tag user.image_url, class: "img-circle img-responsive", width: "50", height: "50" %><br></td>
+        <%= link_to users.id, user_path(user)
+        <td><%= image_tag user.image_url, class: "img-circle img-responsive", width: "50", height: "50" %><br></td>%>
       </tr>
     <% end %>
   </tbody>

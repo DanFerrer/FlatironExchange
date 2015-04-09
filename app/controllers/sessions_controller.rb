@@ -2,8 +2,8 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     session[:user_id] = user.id
-    flash[:success] = "Welcome #{user.name} to Flatiron Exchange"
-    redirect_to user_path(user)
+    flash[:success] = "Welcome back, #{user.name}!"
+    redirect_to home_url
   end
 
   def destroy
