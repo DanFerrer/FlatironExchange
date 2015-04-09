@@ -7,5 +7,16 @@
   <%= @user.email %>
 </p><br>
 
-<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
+<h4>Questions:</h4>
+<% @questions.each do |question| %>
+  <p><strong> <%= link_to question.title, question_path(question) %></strong>:
+  <%= question.content %> </p>
+<% end %><br />
+
+<h4>Answers:</h4>
+<% @answers.each do |answer| %>
+  <p><%= answer.content %></p>
+<% end %>
+
+<br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
 <%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>

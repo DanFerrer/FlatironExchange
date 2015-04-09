@@ -16,7 +16,8 @@
   <% if !@question.answers.empty? %>
     <% @question.answers.each do |answer| %>
      <li><p><%= answer.content %></p></li>
-     <%= link_to('vote for this post!', vote_up_answer_path(answer), :method => :post) %>         <%= pluralize(answer.votes.count, 'vote') %>
+     by <%= link_to_image(answer.responder.image_url, user_path(answer.responder_id)) %><br />
+     <br><%= link_to('thumbs up!', vote_up_answer_path(answer), :method => :post, class: "btn btn-primary btn-sm") %>         <%= pluralize(answer.votes.count, 'vote') %>
     <%end%>
   <%end%>
 </ul>
@@ -24,7 +25,7 @@
  <%= f.label :content, "Answer the question" %>
  <%= f.text_field :content  %>
  <div class="actions">
-   <%= f.submit "Submit", class: "btn btn-primary" %>
+   <br /><%= f.submit "Submit", class: "btn btn-primary" %>
  </div>
 <% end %><br />
 
