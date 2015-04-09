@@ -1,25 +1,21 @@
 <p>
-  <strong>Subject:</strong><br />
-  <%= @question.title %>
+ <strong>Subject:</strong><br />
+ <%= @question.title %>
 </p>
 <p>
-  <strong>Question:</strong><br />
-  <%= @question.content %>
+ <strong>Question:</strong><br />
+ <%= @question.content %>
 </p>
 
-<!-- Begin Answer Field -->
 <h4>Answers<h4>
 <ul>
-	<% if !@question.answers.empty? %>
-		<% @question.answers.each do |answer| %>
-  		<li><p><%= answer.content %></p></li>
-  	<%end%>
+  <% if !@question.answers.empty? %>
+    <% @question.answers.each do |answer| %>
+     <li><p><%= answer.content %></p></li>
+     <%= link_to('vote for this post!', vote_up_answer_path(answer), :method => :post) %>         <%= pluralize(answer.votes.count, 'vote') %>
   <%end%>
-<<<<<<< Updated upstream
-=======
-</ul>
-
->>>>>>> Stashed changes
+ <%end%>
+ </ul>
 <%= form_for([@question, Answer.new]) do |f| %>
  <%= f.label :content, "Answer the question" %>
  <%= f.text_field :content  %>
@@ -28,7 +24,6 @@
  </div>
 <% end %>
 
->>>>>>> 46b86401cb435edf374f93f5ea45150eacf9b1cc
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
