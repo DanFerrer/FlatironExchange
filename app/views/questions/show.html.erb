@@ -10,13 +10,12 @@
 <h4>Answers<h4>
 <ul>
   <% if !@question.answers.empty? %>
-      <% @question.answers.each do |answer| %>
-       <li><p><%= answer.content %></p></li>
-       <%= link_to('vote for this post!', vote_up_answer_path(answer), :method => :post) %>         <%= pluralize(answer.votes.count, 'vote') %>
-   <%end%>
+    <% @question.answers.each do |answer| %>
+     <li><p><%= answer.content %></p></li>
+     <%= link_to('vote for this post!', vote_up_answer_path(answer), :method => :post) %>         <%= pluralize(answer.votes.count, 'vote') %>
+  <%end%>
  <%end%>
  </ul>
-
 <%= form_for([@question, Answer.new]) do |f| %>
  <%= f.label :content, "Answer the question" %>
  <%= f.text_field :content  %>
