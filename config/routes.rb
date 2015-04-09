@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  get "/archive" => "questions#index", as: :archive
+  # get "/archive" => "questions#index", as: :archive
+  get "/tags/:tag" => "questions#index", as: :tag
 
   resources :questions do
     resources :answers

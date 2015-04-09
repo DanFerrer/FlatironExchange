@@ -5,7 +5,11 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.all
+    if params[:tag]
+      @questions = Question.tagged_with(params[:tag])
+    else
+      @questions = Question.all
+    end
   end
 
   # GET /questions/1
@@ -78,6 +82,7 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:title, :content, :tag_ids => [], :tags_attributes => [:id, :name]).merge(asker_id: current_user.id)
+      params.require(:question).permit(:title, :content, :tag_list).merge(asker_id: current_user.id)
+      # , :tag_ids => [], :tags_attributes => [:id, :name]
     end
 end

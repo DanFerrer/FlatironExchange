@@ -22,15 +22,8 @@
   </div>
 
   <div class="field">
-    <%= f.collection_select :tag_ids, Tag.all, :id, :name %>
-    <br>
-    <%= f.fields_for :tags, Tag.new do |tag_f| %><br>
-      <%= tag_f.label :name, "Make a New Tag" %>
-      <%= tag_f.text_field :name  %>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
-<% end %>
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br>
+    <%= f.text_field :tag_list %>
+  </div><br />
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %><br />
