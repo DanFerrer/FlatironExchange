@@ -10,7 +10,7 @@ class Question < ActiveRecord::Base
 
   def self.search(search)
     # binding.pry
-    Question.joins(:tags).where('name LIKE ?', "%#{search}%")
+    Question.where('content LIKE ?', "%#{search}%")
   end
   
   def tags_name
