@@ -1,9 +1,33 @@
 Rails.application.routes.draw do
+  get '/search', to: "search#index"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'home#index'
+  # get "/archive" => "questions#index", as: :archive
+  get "/tags/:tag" => "questions#index", as: :tag
+
+  resources :questions do
+    resources :answers
+  end
+  resources :users 
+  resources :sesssions
+  resources :answers do
+    member do
+      post :vote_up
+    end
+  end
+
+  get "/auth/github/callback", to: "sessions#create", as: :login
+  get "/logout" => "sessions#destroy", as: :logouts
+  get "/ask" => "questions#create", as: :ask
+  get "/members" => "users#index", as: :members
+  get "/profile" => "users#show", as: :profile
+  get "/results" => "search#index", as: :results
+  # get "/tagged" => "tagged#index" as: :tagged
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

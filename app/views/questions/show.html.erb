@@ -1,0 +1,33 @@
+<p>
+ <strong>Subject:</strong><br />
+ <%= @question.title %>
+</p>
+<p>
+ <strong>Question:</strong><br />
+ <%= @question.content %>
+</p>
+<p>
+ <strong>Tags:</strong><br />
+ <%= raw @question.tag_list.map {|t| link_to t, tag_path(t) }.join(", ") %>
+</p>
+
+<h4>Answers<h4>
+<ul>
+  <% if !@question.answers.empty? %>
+    <% @question.answers.each do |answer| %>
+     <li><p><%= answer.content %></p></li>
+     <%= link_to('vote for this post!', vote_up_answer_path(answer), :method => :post) %>         <%= pluralize(answer.votes.count, 'vote') %>
+    <%end%>
+  <%end%>
+</ul>
+<%= form_for([@question, Answer.new]) do |f| %>
+ <%= f.label :content, "Answer the question" %>
+ <%= f.text_field :content  %>
+ <div class="actions">
+   <%= f.submit "Submit", class: "btn btn-primary" %>
+ </div>
+<% end %><br />
+
+
+<%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary" %> |
+<%= link_to 'Back', questions_path, class: "btn btn-primary" %>

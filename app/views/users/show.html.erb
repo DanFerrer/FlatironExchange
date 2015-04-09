@@ -1,0 +1,11 @@
+<%= image_tag @user.image_url, class: "img-circle img-responsive", width: "150", height: "150" %><br>
+<br><p>
+  <%= @user.name %>
+</p>
+
+<p>
+  <%= @user.email %>
+</p><br>
+
+<%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
+<%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>

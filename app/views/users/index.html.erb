@@ -1,0 +1,24 @@
+<h1>Members</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+      <!-- Create linkable profiles on names, names
+      go below profile pictures -->
+        <td><%= user.name %></td>
+        <td><%= image_tag user.image_url, class: "img-circle img-responsive", width: "50", height: "50" %><br></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
