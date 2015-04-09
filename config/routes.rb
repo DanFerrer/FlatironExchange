@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers
   end
-  resources :users
+  resources :users 
   resources :sesssions
   resources :answers do
     member do

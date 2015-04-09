@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'pry-nav'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -33,7 +33,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'simple_form'
 gem 'thumbs_up', git: 'https://github.com/bouchard/thumbs_up.git', ref: 'f499a7c803c0a9fdcefe4275f2f0a10ca7964508'
-
+# gem 'acts-as-taggable-on'
 
 
 group :development, :test do

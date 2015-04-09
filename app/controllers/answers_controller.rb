@@ -7,6 +7,7 @@ class AnswersController < ApplicationController
 
 	def create
 		question = Question.find(params[:question_id])
+		# binding.pry
     question.answers.create(answer_params)
 		flash[:success] = "Your answer has been created!"
 		redirect_to question_path(question)
