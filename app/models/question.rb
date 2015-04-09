@@ -7,6 +7,7 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :tags, :answers
 
   def self.search(search)
-    where('content LIKE ?', "%#{search}%")
+    # binding.pry
+    Question.joins(:tags).where('name LIKE ?', "%#{search}%")
   end
 end
