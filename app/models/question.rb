@@ -14,6 +14,6 @@ class Question < ActiveRecord::Base
   end
   
   def tags_name
-    Tag.find_by_name(:name)
+    Tag.find_or_create_by_name(:name)
   end
 end
