@@ -8,8 +8,20 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+<%= render "layouts/header"  %>
 
-<%= yield %>
+<div class="container">
+  <% flash.each do |name, msg| %>
+    <button class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <div class="alert alert-<%= name %> alert-dismissable">
+      <%= msg %>
+    </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

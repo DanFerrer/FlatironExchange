@@ -1,0 +1,12 @@
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <br><%= f.label :name, "Name" %>
+    <br><%= f.text_field :name %></br>
+    <br><%= f.label :email, "Email" %>
+    <br><%= f.text_field :email %>
+  </div><br>
+
+  <div class="action">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div><br>
+<% end %><br />
