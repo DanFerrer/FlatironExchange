@@ -10,8 +10,6 @@
  <strong>Tags:</strong><br />
  <%= raw @question.tag_list.map {|t| link_to t, tag_path(t) }.join(", ") %>
 </p>
-
-<h4>Answers<h4>
 <ul>
   <% if !@question.answers.empty? %>
     <% @question.answers.each do |answer| %>
