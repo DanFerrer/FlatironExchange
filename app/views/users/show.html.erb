@@ -6,10 +6,15 @@
   <%= @user.email %>
 </p>
 <p>
-  <%= @user.title %>
+  <strong><%= @user.title %></strong>
 </p><br>
 
-<h4>My tags:</h4>
+
+<div id="tag_cloud">
+  <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
 
 
 <h4>Questions asked:</h4>
@@ -17,11 +22,6 @@
   <p><strong> <%= link_to question.title, question_path(question) %></strong>
   <%= question.content %> </p>
 <% end %><br />
-
-<h4>Questions answered:</h4>
-<% @answers.each do |answer| %>
-  <p><%= answer.content %></p>
-<% end %>
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
 <%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>
