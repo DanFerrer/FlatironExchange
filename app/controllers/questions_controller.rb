@@ -38,7 +38,6 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         flash[:success] = 'Question was successfully created.'
-        format.html { redirect_to @question  }
         format.html { redirect_to home_url  }
         format.json { render :show, status: :created, location: @question }
       else
@@ -54,12 +53,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update(question_params)
         flash[:succeess] = 'Question was successfully updated.'
-
-<<<<<<< HEAD
-        format.html { redirect_to @question  }
-=======
         format.html { redirect_to home_url  }
->>>>>>> th
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit }
@@ -73,13 +67,8 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-<<<<<<< HEAD
       flash[:success] = 'Question was successfully destroyed.'
-      format.html { redirect_to @question  }
-=======
-      flash[:success] = 'Question was successfully deleted'
-      format.html { redirect_to home_url  }
->>>>>>> th
+      format.html { redirect_to home_url }
       format.json { head :no_content }
     end
   end
