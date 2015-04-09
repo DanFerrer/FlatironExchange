@@ -11,8 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    # @tags = @user.questions.first.tags
     @questions = @user.questions
-    @answers = @user.answers
+    @answers = @user.questions.joins(:answers)
   end
 
   # GET /users/new
