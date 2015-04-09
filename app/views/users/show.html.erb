@@ -2,9 +2,11 @@
 <br><p>
   <%= @user.name %>
 </p>
-
 <p>
   <%= @user.email %>
+</p>
+<p>
+  <%= @user.title %>
 </p><br>
 
 <h4>My Tags:</h4>
@@ -28,5 +30,5 @@
   <%= answer.content %></p>
 <% end %>
 
-<br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %> |
+<br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
 <%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>

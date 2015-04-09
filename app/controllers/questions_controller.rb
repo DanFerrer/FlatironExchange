@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.save
         flash[:success] = 'Question was successfully created.'
-        format.html { redirect_to @question  }
+        format.html { redirect_to @question }
         format.json { render :show, status: :created, location: @question }
       else
         format.html { render :new }
@@ -53,7 +53,6 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update(question_params)
         flash[:succeess] = 'Question was successfully updated.'
-
         format.html { redirect_to @question  }
         format.json { render :show, status: :ok, location: @question }
       else
@@ -69,7 +68,7 @@ class QuestionsController < ApplicationController
     @question.destroy
     respond_to do |format|
       flash[:success] = 'Question was successfully destroyed.'
-      format.html { redirect_to @question  }
+      format.html { redirect_to home_url }
       format.json { head :no_content }
     end
   end
