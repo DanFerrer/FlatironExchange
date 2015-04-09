@@ -14,13 +14,11 @@ class User < ActiveRecord::Base
     end
   end
 
-<<<<<<< HEAD
-
   def sign_up_notification
     UserMailer.sign_up(self).deliver
-=======
+  end
+
   def self.titles
     ["Instructor", "Alum", "Student"]
->>>>>>> th
   end
 end
