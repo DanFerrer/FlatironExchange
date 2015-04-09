@@ -2,18 +2,20 @@
 <br><p>
   <%= @user.name %>
 </p>
-
 <p>
   <%= @user.email %>
+</p>
+<p>
+  <%= @user.title %>
 </p><br>
 
-<h4>Questions:</h4>
+<h4>Questions asked:</h4>
 <% @questions.each do |question| %>
   <p><strong> <%= link_to question.title, question_path(question) %></strong>:
   <%= question.content %> </p>
 <% end %><br />
 
-<h4>Answers:</h4>
+<h4>Questions answered:</h4>
 <% @answers.each do |answer| %>
   <p><%= answer.content %></p>
 <% end %>

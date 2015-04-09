@@ -10,17 +10,12 @@
  <strong>Tags:</strong><br />
  <%= raw @question.tag_list.map {|t| link_to t, tag_path(t) }.join(", ") %>
 </p>
-
-<h4>Answers<h4>
 <ul>
   <% if !@question.answers.empty? %>
     <% @question.answers.each do |answer| %>
      <li><p><%= answer.content %></p></li>
-     by <%= link_to_image(answer.responder.image_url, user_path(answer.responder_id)) %>
-     <br />
-     <br>
-     <%= link_to_('thumbs up!', vote_up_answer_path(answer), method: :post, class: "btn btn-primary btn-sm") unless current_user %>         
-     <%= pluralize(answer.votes.count, 'vote') %>
+     by <%= link_to_image(answer.responder.image_url, user_path(answer.responder_id)) %><br />
+     <br><%= link_to('thumbs up!', vote_up_answer_path(answer), :method => :post, class: "btn btn-primary btn-sm") %><%= pluralize(answer.votes.count, 'vote') %>
     <%end%>
   <%end%>
 </ul>
@@ -31,7 +26,6 @@
    <br /><%= f.submit "Submit", class: "btn btn-primary" %>
  </div>
 <% end %><br />
-
 
 <%= link_to 'Edit', edit_question_path(@question), class: "btn btn-primary" %> |
 <%= link_to 'Back', questions_path, class: "btn btn-primary" %>
