@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
   # acts_as_taggable_on :skills, :interests
 
   def self.search(search)
-    Question.where('content LIKE ?', "%#{search}%")
+    Question.where('title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%")
   end
 
   def tags_name
