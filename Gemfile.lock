@@ -307,11 +307,7 @@ DEPENDENCIES
   google-analytics-rails
   guard-rspec
   jbuilder (~> 2.0)
-
-  jquery-rails
-
   jquery-rails (~> 2.3.0)
-
   omniauth
   omniauth-github
   pg
