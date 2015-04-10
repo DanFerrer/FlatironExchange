@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :questions, foreign_key: "asker_id"
   has_many :answers, foreign_key: "responder_id"
-  has_many :activities
+  has_many :activities, dependent: :destroy
   after_create :sign_up_notification
   acts_as_voter
 
