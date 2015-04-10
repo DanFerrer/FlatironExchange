@@ -16,20 +16,12 @@
   <% end %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="span9">
-      <h4>Questions asked:</h4>
-      <% @questions.each do |question| %>
-        <p><strong> <%= link_to question.title, question_path(question) %></strong>
-        <%= question.content %> </p>
-      <% end %><br />
-    <div class="span3">
-      <h2>Hello</h2>  
-    </div>  
-    </div>  
-  </div>
-</div>
+
+<h4>Questions asked:</h4>
+<% @questions.each do |question| %>
+  <p><strong> <%= link_to question.title, question_path(question) %></strong>
+  <%= question.content %> </p>
+<% end %><br />
 
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
