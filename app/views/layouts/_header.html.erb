@@ -20,7 +20,9 @@
         <li><%= link_to "Browse Questions", questions_path %></li>
         <li><%= form_tag("/search", :method => :get, :class => "navbar-form navbar-left") do %>
           <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Explore!"%>
-          <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+          <%= button_tag type: "submit", :name => nil, class: "btn btn-primary" do %>
+            <span class="glyphicon glyphicon-search"></span>
+          <% end %>
         <% end %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
