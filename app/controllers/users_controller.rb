@@ -16,12 +16,11 @@ class UsersController < ApplicationController
     @answers = @user.answers
   end
 
-  # GET /users/new
-  def new
+  def edit
   end
 
-  # GET /users/1/edit
-  def edit
+  # GET /users/new
+  def new
   end
 
   # POST /users
