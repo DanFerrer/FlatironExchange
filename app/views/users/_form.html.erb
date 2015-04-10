@@ -1,7 +1,9 @@
 <%= form_for(@user) do |f| %>
   <div class="field">
     <br><%= f.label :name, "Name" %>
+    <br><%= f.text_field :name %>
     <br><%= f.label :email, "Email" %>
+    <br><%= f.text_field :email %>
     <br><%= f.label :title, "Title" %>
 		<%= f.select :title, User.titles %>	
   </div><br>

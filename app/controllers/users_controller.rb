@@ -15,11 +15,6 @@ class UsersController < ApplicationController
     @answers = @user.answers
   end
 
-  # GET /users/new
-  def new
-  end
-
-  # GET /users/1/edit
   def edit
     # binding.pry
     if @current_user.id.to_s == params[:id]
@@ -27,6 +22,10 @@ class UsersController < ApplicationController
     else
       redirect_to home_url 
     end
+  end
+
+  # GET /users/new
+  def new
   end
 
   # POST /users
