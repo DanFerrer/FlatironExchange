@@ -22,6 +22,19 @@
   <%= question.content %> </p>
 <% end %><br />
 
+<h4>Questions answered:</h4>
+<% @hash.each do |k, v| %>
+  <strong><%= link_to k.title, question_path(k.id) %></strong>
+  <% v.each do |answer| %>
+    <ul>
+      <li><%= answer %></li>
+    </ul>
+  <% end %>
+<% end %>
+
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
 <%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>
+
+
+

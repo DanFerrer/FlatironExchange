@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   def show
     @questions = @user.questions
     @answers = @user.answers
+    @hash = @answers.each_with_object(Hash.new) do |answer, answer_hash|
+      answer_hash[answer.question] ||= []
+      answer_hash[answer.question] << answer.content
+    end
   end
 
   def edit
