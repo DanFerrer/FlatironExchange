@@ -2,7 +2,7 @@ class ActivityPresenter < SimpleDelegator
   attr_reader :activity
 
   def initialize(activity, view)
-    super(view)
+      super(view)
     @activity = activity
   end
 

@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, only: [:index, :show, :edit, :update, :create, :destroy]
+  before_action :change_question, only: [:edit, :update, :destroy]
+  before_action :authorize, only: [:index, :show, :edit, :update, :create, :destroy]
 
   # GET /questions
   # GET /questions.json
@@ -36,8 +37,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
-        flash[:success] = 'Question was successfully created.'
-        binding.pry
+        flash[:success] = 'Question was successfully created. Click anywhere to close'
         track_activity(@question)
         format.html { redirect_to @question }
         format.json { render :show, status: :created, location: @question }
@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        flash[:succeess] = 'Question was successfully updated.'
+        flash[:success] = 'Question was successfully updated. Click on this message to close'
         track_activity(@question)
         format.html { redirect_to @question  }
         format.json { render :show, status: :ok, location: @question }
@@ -79,6 +79,13 @@ class QuestionsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_question
       @question = Question.find(params[:id])
+    end
+
+    def change_question
+      if Question.find(params[:id]).asker != current_user
+        flash[:danger] = "Sorry, you cant #{params[:action]} this question. Click this message to close it"
+        redirect_to set_question
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
