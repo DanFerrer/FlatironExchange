@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   # GET /questions.json
-  
+
   def index
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
@@ -31,14 +31,11 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
-    # tags
-    # parmas[tags attributes].each do |tag|
-    #  tags <<Tag.find_or_create_by(:name => tag)
-    # end
-    # @question.tags << tags
     respond_to do |format|
       if @question.save
         flash[:success] = 'Question was successfully created.'
+        binding.pry
+        track_activity(@question)
         format.html { redirect_to @question }
         format.json { render :show, status: :created, location: @question }
       else
@@ -54,6 +51,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update(question_params)
         flash[:succeess] = 'Question was successfully updated.'
+        track_activity(@question)
         format.html { redirect_to @question  }
         format.json { render :show, status: :ok, location: @question }
       else

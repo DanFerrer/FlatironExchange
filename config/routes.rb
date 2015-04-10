@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   # get "/archive" => "questions#index", as: :archive
   get "/tags/:tag" => "questions#index", as: :tag
-
+  resources :activities
   resources :questions do
     resources :answers
   end
