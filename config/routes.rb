@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   get "/profile" => "users#show", as: :profile
   get "/results" => "search#index", as: :results
   # get "/tagged" => "tagged#index" as: :tagged
-  get "/home" => "home#index", as: :home
+  get "/home" => "activities#index"
+  # , as: :home
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
