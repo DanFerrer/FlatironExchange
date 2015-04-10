@@ -3,7 +3,7 @@
   Sorry, nothing matches your search...
 <% else %>
   <% @questions.each do |question| %>
-    <h3><%= question.title %></h3>
+    <h3><%= link_to question.title, question_path(question.id) %></h3>
     <p><%= question.content %></p>
   <% end %>
 <% end %>
