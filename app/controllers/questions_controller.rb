@@ -9,6 +9,9 @@ class QuestionsController < ApplicationController
   def index
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
+      if @questions.size == 1
+        redirect_to question_path(@questions.first.id)
+      end
     else
       @questions = Question.all
     end

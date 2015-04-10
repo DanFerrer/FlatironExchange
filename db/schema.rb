@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150409225609) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "responder_id"
+    t.integer  "votes"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
