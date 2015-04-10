@@ -22,10 +22,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if current_user != set_user
-      flash[:danger] = "You cannot edit this user. Click this message to close it"
-      redirect_to root_url
-    end
   end
 
   # POST /users
@@ -75,7 +71,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def update_user
+    def change_user
       if current_user != set_user
         flash[:danger] = "Sorry, you cant #{params[:action]} this user. Click this message to close it"
         redirect_to set_user

@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
-        flash[:success] = 'Question was successfully created.'
+        flash[:success] = 'Question was successfully created. Click anywhere to close'
         track_activity(@question)
         format.html { redirect_to @question }
         format.json { render :show, status: :created, location: @question }
@@ -53,7 +53,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        flash[:succeess] = 'Question was successfully updated.'
+        flash[:success] = 'Question was successfully updated. Click on this message to close'
         track_activity(@question)
         format.html { redirect_to @question  }
         format.json { render :show, status: :ok, location: @question }
