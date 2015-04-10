@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # get "/archive" => "questions#index", as: :archive
   get "/tags/:tag" => "questions#index", as: :tag
   resources :activities
-   # controller: 'home' do
+  # , controller: 'home' do
   resources :questions do
     resources :answers
   end
@@ -77,6 +77,6 @@ Rails.application.routes.draw do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
-  #   end
+     # end
 
 end 
