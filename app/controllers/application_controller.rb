@@ -6,12 +6,14 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    # binding.pry
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def authorize
-    redirect_to root_url, notice: "Not authorized" if current_user.nil?
+    if current_user.nil?
+      flash[:danger] = "You must login to perform this action"
+      redirect_to root_url
+    end
   end
 
   def track_activity(trackable)
