@@ -54,7 +54,6 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update(question_params)
         flash[:success] = 'Question was successfully updated. Click on this message to close'
-        track_activity(@question)
         format.html { redirect_to @question  }
         format.json { render :show, status: :ok, location: @question }
       else

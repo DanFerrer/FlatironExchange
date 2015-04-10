@@ -1,12 +1,11 @@
 class AnswersController < ApplicationController
 	before_action :set_answer, only: [:show, :edit, :update, :destroy]
-	before_action :change_question, only: [:edit, :update, :destroy]
+	before_action :change_answer, only: [:edit, :update, :destroy]
 
 	def index
 		question = Question.find(params[:question_id])
 		@answers = question.answers
 	end
-
 	def edit
 	end
 

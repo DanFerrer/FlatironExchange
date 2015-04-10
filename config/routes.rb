@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   get "/auth/github/callback", to: "sessions#create", as: :login
   get "/logout" => "sessions#destroy", as: :logout
   get "/members" => "users#index", as: :members
+  get "/profile" => "users#show", as: :profile
   get "/results" => "search#index", as: :results
+  # get "/tagged" => "tagged#index" as: :tagged
   get "/home" => "home#index", as: :home
 
   # Example of regular route:
