@@ -16,7 +16,6 @@
   <% end %>
 </div>
 
-
 <h4>Questions asked:</h4>
 <% @questions.each do |question| %>
   <p><strong> <%= link_to question.title, question_path(question) %></strong>

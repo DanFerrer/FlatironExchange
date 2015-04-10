@@ -1,1 +1,1 @@
-answered <%= link_to answer.question.title, answer.question %>
+answered <%= link_to answer.question.title, answer.question %> <%= time_ago_in_words(answer.created_at) %> ago

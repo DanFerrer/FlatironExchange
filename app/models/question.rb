@@ -1,6 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :asker, class_name: "User"
-  has_many :answers
+  has_many :answers, dependent: :destroy
   # has_many :question_tags
   # has_many :tags, through: :question_tags
   validates_presence_of :content, :title
@@ -9,7 +9,6 @@ class Question < ActiveRecord::Base
   # acts_as_taggable_on :skills, :interests
 
   def self.search(search)
-    # binding.pry
     Question.where('content LIKE ?', "%#{search}%")
   end
 

@@ -1,8 +1,13 @@
 class AnswersController < ApplicationController
+	before_action :set_answer, only: [:show, :edit, :update, :destroy]
+	before_action :change_question, only: [:edit, :update, :destroy]
 
 	def index
 		question = Question.find(params[:question_id])
 		@answers = question.answers
+	end
+
+	def edit
 	end
 
 	def create
@@ -11,6 +16,9 @@ class AnswersController < ApplicationController
 		flash[:success] = "Your answer has been submitted!"
 		track_activity(answer)
 		redirect_to question_path(question)
+	end
+
+	def update
 	end
 
 	def vote_up
@@ -26,6 +34,17 @@ class AnswersController < ApplicationController
 	end
 
 	private
+	def set_answer
+		@answer = Answer.find(params[:id])
+	end
+
+	def change_answer
+		if Answer.find(params[:id]).responder != current_user
+			flash[:danger] = "Sorry, you cant #{params[:action]} this answer. Click this message to close it"
+			redirect_to root_url
+		end
+	end
+
 	def answer_params
     params.require(:answer).permit(:content).merge(responder_id: current_user.id)
 	end
