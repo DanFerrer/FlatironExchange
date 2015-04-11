@@ -7,20 +7,28 @@
   <%= csrf_meta_tags %>
   <%= analytics_init if Rails.env.production? %>
 </head>
+
 <body>
-<%= render "layouts/header"  %>
+  <div id="wrapper">
 
-<div class="container">
-  <% flash.each do |name, msg| %>
-      <div class="alert alert-<%= name %> alert-dismissable" data-dismiss="alert" aria-hidden="true" style="cursor: pointer">
-        <%= msg %>
-      </div>
-  <% end %>
-</div>
+    <div id="header">
+      <%= render "layouts/header"  %>
+    </div>
 
-<div class="container">
-  <%= yield %>
-</div>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+          <div class="alert alert-<%= name %> alert-dismissable" data-dismiss="alert" aria-hidden="true" style="cursor: pointer">
+            <%= msg %>
+          </div>
+      <% end %>
+   
+      <%= yield %>
+    </div>
+
+    
+
+  </div><!-- #wrapper -->
 
 </body>
+
 </html>
