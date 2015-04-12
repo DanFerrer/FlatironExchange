@@ -1,29 +1,33 @@
-<h4>
- <%= @question.title %>
-</h4>
+<h1 class="text-center"><%= @question.title %></h1><br />
 
-<p>
-  <strong>* * *</strong><br />
-  <%= @question.content %>
-</p>
-
-<p>Asked on <%= @question.created_at.strftime("%B %d, %Y") %> by <%= link_to @question.asker.name, user_path(@question.asker_id) %>
-<%= link_to_image(@question.asker.image_url, user_path(@question.asker_id)) %> </p> 
-
+<h4><%= @question.content %></h4>
 <p><%= raw @question.tag_list.map {|t| link_to t, tag_path(t) }.join(", ") %></p>
 
-<ul>
+<p class="text-right">Asked on <%= @question.created_at.strftime("%B %d, %Y") %> by <%= link_to @question.asker.name, user_path(@question.asker_id) %>
+<%= link_to_image(@question.asker.image_url, user_path(@question.asker_id)) %> </p><br /> 
+
+
+<table class="table table-responsive table-hover">
+  <tbody>
   <% if !@question.answers.empty? %>
     <% @question.answers.each do |answer| %>
-     <li><p><%= answer.content %></p></li>
-     <p>Answered on <%= answer.created_at.strftime("%B %d, %Y") %> by <%= link_to answer.responder.name, user_path(answer.responder.id) %> <%= link_to_image(answer.responder.image_url, user_path(answer.responder_id)) %> </p>
-     <%= link_to('', vote_up_answer_path(answer), :method => :post, class: "glyphicon glyphicon-thumbs-up") %> <%= pluralize(answer.votes.count, 'vote') %>
+      <tr>
+        <td><h5><%= answer.content %></h5>
+          <p class="text-right">Answered on <%= answer.created_at.strftime("%B %d, %Y") %> by <%= link_to answer.responder.name, user_path(answer.responder.id) %> <%= link_to_image(answer.responder.image_url, user_path(answer.responder_id)) %></p> 
+          <%= link_to('', vote_up_answer_path(answer), :method => :post, class: "glyphicon glyphicon-thumbs-up") %> <%= pluralize(answer.votes.count, 'vote') %></td>
+      </tr>
     <%end%>
+  </tbody>
   <%end%>
-</ul>
+</table>
+</ul><br />
 <%= form_for([@question, Answer.new]) do |f| %>
-  <%= f.text_area :content, placeholder: "Your answer here" %>
-  <div class="actions">
+<div class="form-group">
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Your answer here", class: "form-control", rows: "7", cols: "100" %>
+    </div>
+  </div>
+  <div class="actions text-right">
     <br /><%= f.submit "Submit Answer", class: "btn btn-primary" %>
   </div>
 <% end %><br />
