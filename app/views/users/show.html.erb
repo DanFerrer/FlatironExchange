@@ -1,40 +1,45 @@
-<%= image_tag @user.image_url, class: "img-circle img-responsive", width: "150", height: "150" %><br>
-<br><p>
-  <%= @user.name %>
-</p>
-<p>
-  <%= @user.email %>
-</p>
-<p>
-  <%= @user.title %>
-</p><br>
-
+<h1 class="page-header text-center"><%= @user.name %> <small><%= @user.title %></small></h1>
+<center><%= image_tag @user.image_url, class: "img-circle img-responsive", width: "150", height: "150" %><br>
+<br>
+<p><%= @user.email %></p><br>
 
 <div id="tag_cloud">
   <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-</div>
+</div></center>
 
-<h4>Questions asked:</h4>
-<% @questions.each do |question| %>
-  <p><strong> <%= link_to question.title, question_path(question) %></strong>
-  <%= question.content %> </p>
-<% end %><br />
 
-<h4>Questions answered:</h4>
-<% @hash.each do |k, v| %>
-  <strong><%= link_to k.title, question_path(k.id) %></strong>
-  <% v.each do |answer| %>
-    <ul>
-      <li><%= answer %></li>
-    </ul>
-  <% end %>
+<% if @questions.size > 0 %>
+  <h4>Questions asked:</h4>
+  <table class="table table-responsive table-hover">
+    <tbody>
+      <% @questions.each do |question| %>
+      <tr>
+        <td><strong> <%= link_to question.title, question_path(question) %></strong></td>
+        <td><%= question.content %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table><br />
+<% end %>
+
+<% if @hash.size > 0 %>
+  <h4>Questions answered:</h4>
+  <table class="table table-responsive table-hover">
+    <tbody>
+      <% @hash.each do |k, v| %>
+      <tr>
+        <td><strong><%= link_to k.title, question_path(k.id) %></strong></td>
+        <% v.each do |answer| %>
+          <td><%= answer %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table><br />
 <% end %>
 
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
 <%= link_to 'Back', root_path, class: "btn btn-primary" %> <br>
-
-
-

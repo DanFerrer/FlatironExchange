@@ -1,14 +1,28 @@
-<%= form_for(@user) do |f| %>
-  <div class="field">
-    <br><%= f.label :name, "Name" %>
-    <br><%= f.text_field :name %>
-    <br><%= f.label :email, "Email" %>
-    <br><%= f.text_field :email %>
-    <br><%= f.label :title, "Title" %>
-		<%= f.select :title, User.titles %>	
-  </div><br>
+<%= form_for(@user, class: "form-horizontal") do |f| %>
+  <div class="form-group">
+    <div class="field">
+      <br><%= f.label :name, "Name", class: "control-label" %>
+      <br><%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
 
-  <div class="action">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  </div><br>
+  <div class="form-group">
+    <div class="field">
+      <br><%= f.label :email, "Email", class: "control-label" %>
+      <br><%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <br><%= f.label :title, "Title", class: "control-label" %>
+  		<%= f.select :title, User.titles, class: "form-control" %>	
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="action">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %><br />
