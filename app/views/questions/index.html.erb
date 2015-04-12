@@ -1,10 +1,10 @@
-<h1>Questions</h1>
+<h1 class="text-center">Questions</h1>
 
-<div id="tag_cloud">
+<center><div id="tag_cloud">
   <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
-</div>
+</div></center>
 <br>
 <table class="table table-responsive table-hover">
   <thead>
