@@ -9,6 +9,8 @@
   <% end %>
 </div></center>
 
+
+<% if @questions.size > 0 %>
   <h4>Questions asked:</h4>
   <table class="table table-responsive table-hover">
     <tbody>
@@ -20,7 +22,9 @@
       <% end %>
     </tbody>
   </table><br />
+<% end %>
 
+<% if @hash.size > 0 %>
   <h4>Questions answered:</h4>
   <table class="table table-responsive table-hover">
     <tbody>
@@ -34,6 +38,7 @@
       <% end %>
     </tbody>
   </table><br />
+<% end %>
 
 
 <br /><%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" if @user == current_user %> |
