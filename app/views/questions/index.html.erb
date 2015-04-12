@@ -5,19 +5,19 @@
     <%= link_to tag.name, tag_path(tag.name), class: css_class %>
   <% end %>
 </div>
-
-<table>
+<br>
+<table class="table table-responsive table-hover">
   <thead>
     <tr>
-      <th colspan="10"></th>
+      <th>Title</th>
+      <th>Content</th>
     </tr>
   </thead>
-
   <tbody>
     <% @questions.each do |question| %>
       <tr>
         <td><%= link_to question.title, question_path(question)%></td>
-        <td><%= question.content %></td>
+        <td><%= truncate(question.content) %></td>
       </tr>
     <% end %>
   </tbody>
