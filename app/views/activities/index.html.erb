@@ -1,6 +1,12 @@
 <h1 class="text-center">FlatironExchange</h1>
 <h2>Community Activity</h2>
-<% @activities.each do |activity| %>
-  <img src="<%= activity.user.image_url%>" class="img-circle" height="20" align="left">
-  <%= ActivityPresenter.new(activity, self).render_activity %>
-<% end %>
+<table class="table table-responsive table-hover">
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><img src="<%= activity.user.image_url%>" class="img-circle" height="20" align="left">
+          <%= ActivityPresenter.new(activity, self).render_activity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
