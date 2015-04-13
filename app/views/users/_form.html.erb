@@ -1,4 +1,10 @@
 <%= form_for(@user, class: "form-horizontal") do |f| %>
+
+  <div class="field">
+    <%= f.hidden_field :provider, value: @user.provider %>
+    <%= f.hidden_field :uid, value: @user.uid %>
+  </div>
+
   <div class="form-group">
     <div class="field">
       <br><%= f.label :name, "Name", class: "control-label" %>
@@ -16,7 +22,14 @@
   <div class="form-group">
     <div class="field">
       <br><%= f.label :title, "Title", class: "control-label" %>
-  		<%= f.select :title, User.titles, class: "form-control" %>	
+  		<br><%= f.select :title, User.titles, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="field">
+      <br><%= f.label :image_url, "Image", class: "control-label" %>
+      <br><%= f.text_field :image_url, class: "form-control" %>
     </div>
   </div>
 

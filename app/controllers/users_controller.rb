@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, only: [:index, :show, :edit, :update, :create, :destroy]
+  before_action :authorize, only: [:index, :show, :edit, :update, :destroy]
   before_action :change_user, only: [:edit, :update, :destroy]
 
   # GET /users
@@ -30,11 +30,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    binding.pry
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, success: 'User was successfully created.' }
+        session[:user_id] = @user.id
+        flash[:success] = 'Your profile was created successfully!'
+        format.html { redirect_to home_url }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -49,7 +51,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       # binding.pry
       if @user.update(user_params)
-        format.html { redirect_to @user, success: 'User was successfully updated.' }
+        flash[:success] = "Your profile was successfully updated. "
+        format.html { redirect_to @user}
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -70,20 +73,19 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def change_user
-      if current_user != set_user
-        flash[:danger] = "Sorry, you cant #{params[:action]} this user. Click this message to close it"
-        redirect_to set_user
-      end
+  def change_user
+    if current_user != set_user
+      flash[:danger] = "Sorry, you cant #{params[:action]} this user. Click this message to close it"
+      redirect_to set_user
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:id, :image_url)
-      params.require(:user).permit(:id, :title, :image_url, :profile)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:id, :name, :email, :title, :image_url, :provider, :uid)
+  end
 end

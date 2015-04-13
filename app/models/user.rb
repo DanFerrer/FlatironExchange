@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   acts_as_voter
 
   def self.create_with_omniauth(auth)
-    create! do |user|
+    new do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
   def sign_up_notification
     UserMailer.sign_up(self).deliver
   end

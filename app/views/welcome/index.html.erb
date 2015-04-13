@@ -1,6 +1,8 @@
 <div class="background-image"></div>
-<div class="content">
-  <h1 class="text-center">Welcome to FlatironExchange</h1>
+<div class="content text-center">
+  <h1 class="page-header">Welcome to FlatironExchange</h1>
+  <%=fa_icon "github", class: "fa-3x"%>
+  <%= link_to "Sign Up with github", "/auth/github", style: "color: #fff"%>
 </div>
 
 <%= render 'welcome/footer' %>
